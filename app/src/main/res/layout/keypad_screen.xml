@@ -1,47 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#57AA9D">
-
-
-    <EditText
-        android:id="@+id/keypad_text"
-        android:layout_width="310dp"
-        android:layout_height="46dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="205dp"
-        android:layout_marginBottom="268dp"
-        android:background="#A8DACE"
-        android:cursorVisible="true"
-        android:ems="10"
-        android:fontFamily="monospace"
-        android:inputType="textPersonName"
-        android:textAlignment="center" />
-
-    <Button
-        android:id="@+id/clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="422dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#D62424"
-        android:text="Clear" />
-
-    <Button
-        android:id="@+id/enter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="205dp"
-        android:layout_marginBottom="18dp"
-        android:backgroundTint="#8BC34A"
-        android:text="Enter" />
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/button1"
@@ -143,7 +103,4 @@
         android:layout_marginEnd="310dp"
         android:layout_marginBottom="18dp"
         android:text="0" />
-
-
-
 </RelativeLayout>
