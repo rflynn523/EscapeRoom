@@ -48,10 +48,9 @@ public class MainBoi
 
 
         // To start working on your room make a room in the rooms folder and call it here.
-        // Make sure room class extends room and uses setView immediately.
+        // Make sure room class extends room and uses a setView immediately.
         Tutorial tut = new Tutorial(mainActivity, timer);
-        tut.StartRoom();
-//        mainActivity.setContentView(R.layout.activity_main);
+        tut.startRoom();
     }
 
 }
