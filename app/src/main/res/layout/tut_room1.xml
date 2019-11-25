@@ -41,10 +41,9 @@
         android:id="@+id/text_message"
         android:layout_width="300dp"
         android:layout_height="163dp"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="210dp"
-        android:layout_marginBottom="105dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
         android:background="#00FFFFFF"
         android:gravity="bottom"
         android:text="Press the right arrow to move to a new room!" />
@@ -64,53 +63,54 @@
         android:visibility="visible" />
 
     <ImageButton
-        android:id="@+id/btn_invo1"
-        android:layout_width="53dp"
-        android:layout_height="45dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="476dp"
-        android:layout_marginBottom="31dp"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <ImageButton
         android:id="@+id/btn_invo3"
         android:layout_width="53dp"
         android:layout_height="45dp"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="335dp"
-        android:layout_marginBottom="31dp"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <ImageButton
-        android:id="@+id/btn_invo4"
-        android:layout_width="53dp"
-        android:layout_height="45dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="266dp"
-        android:layout_marginBottom="31dp"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <ImageButton
-        android:id="@+id/btn_invo5"
-        android:layout_width="53dp"
-        android:layout_height="45dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="31dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageButton
         android:id="@+id/btn_invo2"
         android:layout_width="53dp"
         android:layout_height="45dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="406dp"
-        android:layout_marginBottom="31dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginEnd="398dp"
+        android:layout_marginBottom="30dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/btn_invo4"
+        android:layout_width="53dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="398dp"
+        android:layout_marginBottom="30dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/btn_invo5"
+        android:layout_width="53dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="457dp"
+        android:layout_marginBottom="30dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/btn_invo1"
+        android:layout_width="53dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="221dp"
+        android:layout_marginBottom="30dp"
         app:srcCompat="@mipmap/ic_launcher" />
 
 </RelativeLayout>
