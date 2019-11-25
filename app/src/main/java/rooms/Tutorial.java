@@ -36,7 +36,7 @@ public class Tutorial extends Room
 
     public void switchInvo()
     {
-        btn_invo1.setImageResource(R.drawable.stop);
+//        btn_invo1.setImageResource(R.drawable.stop);
 
         Room2 room2 = new Room2(mainActivity, timer);
         room2.startRoom2();
