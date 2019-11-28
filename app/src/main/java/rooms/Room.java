@@ -1,7 +1,9 @@
 package rooms;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.escaperoom.MainActivity;
 import com.example.escaperoom.R;
@@ -9,10 +11,23 @@ import com.example.escaperoom.R;
 import java.util.ArrayList;
 
 import framework.Inventory;
+import framework.PauseMenu;
+import framework.Timer;
 
 public abstract class Room {
     private String name;
     public Inventory inventory;
+    public Timer timer;
+    public PauseMenu menu;
+
+    // shows and stores message
+    // use this for hints too
+    public void printMessage(String message, MainActivity mainActivity) throws InterruptedException {
+        TextView text_message = mainActivity.findViewById(R.id.text_message);
+        text_message.setText(message);
+        text_message.setVisibility(TextView.VISIBLE);
+        menu.messages.add(message);
+    }
 
     // if you dont want to use build in inventory class
     // pass mainActivity and desired view
@@ -39,14 +54,14 @@ public abstract class Room {
         ImageButton btn = mainActivity.findViewById(R.id.btn_invo1);
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                inventory.inventoryClicked(0);
+                inventory.inventoryClicked(1);
             }
         });
         list.add(btn);
         btn = mainActivity.findViewById(R.id.btn_invo2);
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                inventory.inventoryClicked(1);
+                inventory.inventoryClicked(2);
             }
         });
 
@@ -54,21 +69,21 @@ public abstract class Room {
         btn = mainActivity.findViewById(R.id.btn_invo3);
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                inventory.inventoryClicked(2);
+                inventory.inventoryClicked(3);
             }
         });
         list.add(btn);
         btn = mainActivity.findViewById(R.id.btn_invo4);
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                inventory.inventoryClicked(3);
+                inventory.inventoryClicked(4);
             }
         });
         list.add(btn);
         btn = mainActivity.findViewById(R.id.btn_invo5);
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                inventory.inventoryClicked(4);
+                inventory.inventoryClicked(5);
             }
         });
         list.add(btn);

@@ -76,6 +76,23 @@ public class Inventory {
 
     public void inventoryClicked(int selectedButton)
     {
-
+        switch (selectedButton)
+        {
+            case 1:
+                selectedItem = inventory.get(0);
+                break;
+            case 2:
+                selectedItem = inventory.get(1);
+                break;
+            case 3:
+                selectedItem = inventory.get(2);
+                break;
+            case 4:
+                selectedItem = inventory.get(3);
+                break;
+            case 5:
+                selectedItem = inventory.get(4);
+                break;
+        }
     }
 }

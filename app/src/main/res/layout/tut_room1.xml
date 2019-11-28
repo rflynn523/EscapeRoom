@@ -46,24 +46,11 @@
         android:layout_marginBottom="100dp"
         android:background="#00FFFFFF"
         android:gravity="bottom"
-        android:text="Press the right arrow to move to a new room!" />
-
-    <TextView
-        android:id="@+id/text_hint"
-        android:layout_width="300dp"
-        android:layout_height="163dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="221dp"
-        android:layout_marginTop="7dp"
-        android:background="#00FFFFFF"
-
-        android:text="hint"
-        android:visibility="visible" />
+        android:text="Press the right arrow to move to a new room!"
+        tools:visibility="invisible" />
 
     <ImageButton
-        android:id="@+id/btn_invo3"
+        android:id="@+id/btn_invo1"
         android:layout_width="53dp"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
@@ -104,13 +91,23 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageButton
-        android:id="@+id/btn_invo1"
+        android:id="@+id/btn_invo3"
         android:layout_width="53dp"
         android:layout_height="45dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="221dp"
         android:layout_marginBottom="30dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/btn_menu"
+        android:layout_width="62dp"
+        android:layout_height="49dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="21dp"
         app:srcCompat="@mipmap/ic_launcher" />
 
 </RelativeLayout>

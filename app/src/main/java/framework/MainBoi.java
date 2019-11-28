@@ -30,14 +30,17 @@ public class MainBoi
         // Play button calls the first room
        play_btn.setOnClickListener(new View.OnClickListener(){
            public void onClick(View v){
-               startRooms();
+               try {
+                   startRooms();
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
            }
        });
 
     }
 
-    public void startRooms()
-    {
+    public void startRooms() throws InterruptedException {
         timer.startTime();
 
         // start room calls here
