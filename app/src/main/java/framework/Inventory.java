@@ -76,21 +76,32 @@ public class Inventory {
 
     public void inventoryClicked(int selectedButton)
     {
+
         switch (selectedButton)
         {
             case 1:
+                if (inventory.size() <= 0)
+                    return;
                 selectedItem = inventory.get(0);
                 break;
             case 2:
+                if (inventory.size() <= 1)
+                    return;
                 selectedItem = inventory.get(1);
                 break;
             case 3:
+                if (inventory.size() <= 2)
+                    return;
                 selectedItem = inventory.get(2);
                 break;
             case 4:
+                if (inventory.size() <= 3)
+                    return;
                 selectedItem = inventory.get(3);
                 break;
             case 5:
+                if (inventory.size() <= 4)
+                    return;
                 selectedItem = inventory.get(4);
                 break;
         }

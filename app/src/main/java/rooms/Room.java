@@ -1,17 +1,23 @@
 package rooms;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Point;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.escaperoom.MainActivity;
+import com.example.escaperoom.Menu;
+import com.example.escaperoom.PopUpWindow;
 import com.example.escaperoom.R;
 
 import java.util.ArrayList;
 
 import framework.Inventory;
 import framework.PauseMenu;
+import framework.PopUpHelper;
 import framework.Timer;
 
 public abstract class Room {
@@ -22,7 +28,7 @@ public abstract class Room {
 
     // shows and stores message
     // use this for hints too
-    public void printMessage(String message, MainActivity mainActivity) throws InterruptedException {
+    public void printMessage(String message, MainActivity mainActivity){
         TextView text_message = mainActivity.findViewById(R.id.text_message);
         text_message.setText(message);
         text_message.setVisibility(TextView.VISIBLE);
@@ -89,5 +95,14 @@ public abstract class Room {
         list.add(btn);
 
         return inventory.updateInventoryUI(list);
+    }
+
+    // invokes popUpWindow
+    public void invokePopUp(MainActivity mainActivity, Bundle bundle)
+    {
+        // create new intent
+        Intent intent = new Intent(mainActivity, PopUpWindow.class);
+        intent.putExtras(bundle);
+        mainActivity.launchPopUpWindow(intent);
     }
 }

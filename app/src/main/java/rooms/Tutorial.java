@@ -19,6 +19,8 @@ public class Tutorial extends Room
     private boolean done;
     private int checkpoint;
     private int currentView;
+    boolean bookGrabbed = false;
+    boolean pictureFixed = false;
 
     // UI components from views
     private ArrayList<ImageButton> btn_invoList;
@@ -38,13 +40,13 @@ public class Tutorial extends Room
 
     // anything not wanted to init in constructor
     // always change view immediately
-    public void startRoom() throws InterruptedException {
+    public void startRoom() {
         // change view
         btn_invoList = super.setView(mainActivity, R.layout.tut_room1, 0);
+        final ImageButton btn_book = mainActivity.findViewById(R.id.btn_book);
 
-        // this is a test dont put this in your
-        // room
-        btn_invoList = super.inventory.addToInventory("stopsign", btn_invoList);
+        if (bookGrabbed)
+            btn_book.setVisibility(View.INVISIBLE);
 
         // getting UI comps
         ImageButton btn_right;
@@ -56,28 +58,6 @@ public class Tutorial extends Room
             }
         });
 
-        // first time in room message
-        super.printMessage("Use the arrows to move to different rooms!", mainActivity);
-    }
-
-    public void view1()
-    {
-        // changes to tut_room1
-        btn_invoList.clear();
-        btn_invoList = super.setView(mainActivity, R.layout.tut_room1, 0);
-
-        // hiding things not wanted on the view
-        mainActivity.findViewById(R.id.btn_left).setVisibility(View.INVISIBLE);
-
-        // set up movement buttons
-        ImageButton btn_right = mainActivity.findViewById(R.id.btn_right);
-        btn_right.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                view2();
-            }
-        });
-
-        // finding other things needed for the room
         ImageButton btn_menu = mainActivity.findViewById(R.id.btn_menu);
         btn_menu.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -85,6 +65,19 @@ public class Tutorial extends Room
                 timer.startTime();
             }
         });
+
+
+        btn_book.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                btn_invoList = inventory.addToInventory("book", btn_invoList);
+                btn_book.setVisibility(View.INVISIBLE);
+                bookGrabbed = true;
+            }
+        });
+
+        // finding other things needed for the room
+
+        /*
         ImageButton btn_hint = mainActivity.findViewById(R.id.btn_hint);
         btn_hint.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -92,10 +85,10 @@ public class Tutorial extends Room
                 // based on where the player is
             }
         });
+        */
 
-        // start calling functions based on what the player should see
-        // depending on where they are in the room
-
+        // first time in room message
+        //super.printMessage("Use the arrows to move to different rooms!", mainActivity);
     }
 
     public void view2()
@@ -105,6 +98,11 @@ public class Tutorial extends Room
         btn_invoList = super.setView(mainActivity, R.layout.tut_room2, 0);
         currentView = 2;
 
+        final ImageButton btn_picture = mainActivity.findViewById(R.id.btn_picture);
+
+        if (!pictureFixed)
+            btn_picture.setRotation(-15);
+
         // hiding things not wanted on the view
         mainActivity.findViewById(R.id.btn_right).setVisibility(View.INVISIBLE);
 
@@ -112,7 +110,7 @@ public class Tutorial extends Room
         ImageButton btn_left = mainActivity.findViewById(R.id.btn_left);
         btn_left.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                view1();
+                startRoom();
             }
         });
 
@@ -125,7 +123,17 @@ public class Tutorial extends Room
                 timer.startTime();
             }
         });
+
+
+        btn_picture.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                btn_picture.setRotation(0);
+                pictureFixed = true;
+            }
+        });
+
         // hint btn
+        /*
         ImageButton btn_hint = mainActivity.findViewById(R.id.btn_hint);
         btn_hint.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -133,15 +141,24 @@ public class Tutorial extends Room
                 // based on where the player is
             }
         });
-
+*/
         // start calling functions based on what the player should see
         // depending on where they are in the room
+        final ImageButton btn_door = mainActivity.findViewById(R.id.btn_door);
+        btn_door.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                if (inventory.selectedItem == "book")
+                    nextRoom();
+                else
+                    printMessage("It seems like there's a book missing from the shelf.", mainActivity);
+            }
+        });
     }
 
     // loads next room
     private void nextRoom()
     {
-        //Room1 room1 = new Room1(mainActivity, timer);
-        //room1.startRoom1();
+        Room2 room2 = new Room2(mainActivity, timer);
+        room2.startRoom2();
     }
 }

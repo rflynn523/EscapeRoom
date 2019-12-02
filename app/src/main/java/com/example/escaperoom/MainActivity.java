@@ -27,5 +27,10 @@ public class MainActivity extends AppCompatActivity {
     {
         startActivity(intent);
     }
+
+    public void launchPopUpWindow(Intent intent)
+    {
+        startActivity(intent);
+    }
 }
 

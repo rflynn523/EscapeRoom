@@ -6,7 +6,10 @@ import android.widget.Button;
 import com.example.escaperoom.MainActivity;
 import com.example.escaperoom.R;
 
+import rooms.Room;
+import rooms.Room1;
 import rooms.Room2;
+import rooms.Room3;
 import rooms.Tutorial;
 
 public class MainBoi
@@ -52,8 +55,11 @@ public class MainBoi
 
         // To start working on your room make a room in the rooms folder and call it here.
         // Make sure room class extends room and uses a setView immediately.
-        Tutorial tut = new Tutorial(mainActivity, timer);
-        tut.startRoom();
+//        Tutorial tutorial = new Tutorial(mainActivity, timer);
+//        tutorial.startRoom();
+
+        Room1 room1 = new Room1(mainActivity, timer);
+        room1.startRoom();
     }
 
 }
