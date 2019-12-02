@@ -48,7 +48,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:background="#00FFFFFF"
+        android:scaleType="fitXY"
+        android:src="@drawable/pause_icon"/>
 
     <ImageButton
         android:id="@+id/btn_hint"
@@ -66,7 +68,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:background="#00FFFFFF"
+        android:scaleType="fitXY"
+        android:src="@drawable/hint_icon"
+        />
 
     <TextView
         android:id="@+id/text_message"
@@ -95,12 +100,13 @@
         android:layout_marginTop="190dp"
         android:layout_marginEnd="620dp"
         android:layout_marginBottom="190dp"
+        android:background="#00FFFFFF"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@drawable/left_arrow" />
 
     <ImageButton
         android:id="@+id/btn_right"
@@ -110,13 +116,14 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="620dp"
         android:layout_marginTop="190dp"
+        android:background="#00FFFFFF"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="190dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@drawable/right_arrow" />
 
     <ImageButton
         android:id="@+id/btn_invo4"

@@ -39,7 +39,7 @@ public class Room2 extends Room
 
         this.mainActivity = ma;
         this.timer = timer;
-        this.checkpoints = new boolean[14];
+        this.checkpoints = new boolean[15];
         checkpoints[0] = true;
 
     }
@@ -49,7 +49,7 @@ public class Room2 extends Room
     {
         room2_invo = super.setView(mainActivity, front, 0);
         // Dont start the timer because just entered the second room.
-        timer.startTime();
+//        timer.startTime();
 
         super.printMessage("I should probably find a note from Max", mainActivity);
 
@@ -408,6 +408,7 @@ public class Room2 extends Room
 
     public void show_room2_hint(int wall)
     {
+
         switch(wall)
         {
             // Front wall
@@ -416,9 +417,10 @@ public class Room2 extends Room
                     super.printMessage("HINT: Find the note from Max", mainActivity);
                 else if(!checkpoints[3])
                     super.printMessage("HINT: Is there something behind those picture frames?", mainActivity);
-                // Some hint to look at the 3 picture frames
-                // A hint to realize the walls all have numbers
-                // A hint to think of other words to write the hint
+                else if(!checkpoints[13])
+                    super.printMessage("HINT: Those are a good set of picture frames", mainActivity);
+                else if(!checkpoints[14])
+                    super.printMessage("HINT: This wall must be the front wall", mainActivity);
                 break;
 
             // Right wall
@@ -435,7 +437,8 @@ public class Room2 extends Room
             case 3:
                 if(!checkpoints[10])
                     super.printMessage("HINT: I wonder when Max was here", mainActivity);
-                // Hint for placing the papers on the whiteboard?
+                else if(!checkpoints[14])
+                    super.printMessage("HINT: What's another way to right this riddle?", mainActivity);
                 break;
 
             // Left wall
@@ -511,38 +514,12 @@ public class Room2 extends Room
         });
     }
 
-//    public void white_board_view()
-//    {
-//        super.setView(mainActivity, R.layout.room2_whiteboard_view);
-//        ImageButton whitebaord_back = (ImageButton) mainActivity.findViewById(R.id.room2_whiteboard_background);
-//
-//        ImageView morse_translator = (ImageView) mainActivity.findViewById(R.id.room2_morse_translator);
-//        ImageView riddle_paper = (ImageView) mainActivity.findViewById(R.id.room2_riddle);
-//
-//        // Put the translator page on the white board
-//        if (checkpoints[6])
-//            morse_translator.setVisibility(View.VISIBLE);
-//
-//        // Put the riddle paper on the white board
-//        if(checkpoints[7])
-//            riddle_paper.setVisibility(View.VISIBLE);
-//
-//        // Light Bulb is placed and translator paper is viewed.
-//        if (checkpoints[5] && checkpoints[6])
-//            checkpoints[9] = true;
-//
-//        whitebaord_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                backWall();
-//            }
-//        });
-//
-//    }
 
     public void keypad_screen()
     {
         super.setView(mainActivity, R.layout.room2_keypad_screen);
+
+        checkpoints[13] = true;
 
         Button zero = mainActivity.findViewById((R.id.button0));
         Button one = mainActivity.findViewById((R.id.button1));
@@ -653,7 +630,7 @@ public class Room2 extends Room
                 if (content.equals("2378"))
                 {
                     keypad_screen.setText("ACCESS GRANTED");
-                    checkpoints[13] = true;
+                    checkpoints[14] = true;
                     // START END SEQUENCE
                     end_sequence();
 
@@ -680,7 +657,7 @@ public class Room2 extends Room
         ImageButton portal_on = (ImageButton) mainActivity.findViewById(R.id.room2_portal_on);
         ImageView portal_off = (ImageView) mainActivity.findViewById(R.id.room2_portal_off);
         // Correct code was entered
-        if (checkpoints[13])
+        if (checkpoints[14])
         {
             portal_on.setVisibility(View.VISIBLE);
             portal_off.setVisibility((View.INVISIBLE));

@@ -55,11 +55,11 @@ public class MainBoi
 
         // To start working on your room make a room in the rooms folder and call it here.
         // Make sure room class extends room and uses a setView immediately.
-//        Tutorial tutorial = new Tutorial(mainActivity, timer);
-//        tutorial.startRoom();
+        Tutorial tutorial = new Tutorial(mainActivity, timer);
+        tutorial.startRoom();
 
-        Room1 room1 = new Room1(mainActivity, timer);
-        room1.startRoom();
+//        Room1 room1 = new Room1(mainActivity, timer);
+//        room1.startRoom();
     }
 
 }

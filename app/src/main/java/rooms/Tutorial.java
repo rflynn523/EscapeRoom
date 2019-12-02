@@ -158,7 +158,7 @@ public class Tutorial extends Room
     // loads next room
     private void nextRoom()
     {
-        Room2 room2 = new Room2(mainActivity, timer);
-        room2.startRoom2();
+        Room1 room1 = new Room1(mainActivity, timer);
+        room1.startRoom();
     }
 }
