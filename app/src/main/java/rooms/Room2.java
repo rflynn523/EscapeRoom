@@ -49,7 +49,6 @@ public class Room2 extends Room
     {
         room2_invo = super.setView(mainActivity, front, 0);
         // Dont start the timer because just entered the second room.
-//        timer.startTime();
 
         super.printMessage("I should probably find a note from Max", mainActivity);
 
@@ -408,7 +407,7 @@ public class Room2 extends Room
 
     public void show_room2_hint(int wall)
     {
-
+        timer.addToHintTime(10);
         switch(wall)
         {
             // Front wall
