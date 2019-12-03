@@ -31,7 +31,6 @@ public class Room3 extends Room
     private boolean key1 = false;
     private boolean key2 = false;
 
-
     private MainActivity mainActivity;
 
     private ArrayList<ImageButton> btnList;
@@ -1418,6 +1417,7 @@ public class Room3 extends Room
                     {
                         checkPoints = 4;
                         btnList = inventory.addToInventory("room3_key2", btnList);
+                        key2 = true;
                         viewValue = R.layout.room3_view11_2;
                         currentView = 112;
                         switchView();
@@ -1621,7 +1621,7 @@ public class Room3 extends Room
                 btn_key.setVisibility(View.VISIBLE);
                 btn_key.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v){
-                        menu.openMenu(mainActivity, timer);
+                        callNextFloor();
 
                     }
                 });
@@ -1631,7 +1631,48 @@ public class Room3 extends Room
 
     public void useHint()
     {
+        if (!spadeTaken)
+        {
+            super.printMessage("Maybe I should find something to dig up that clay outside with.", mainActivity);
+            timer.addToHintTime(10);
+            return;
+        }
+        if (!screwDriverTaken)
+        {
+            super.printMessage("I may find something up in that chest upstairs. Maybe one of the books can led me to a key", mainActivity);
+            timer.addToHintTime(20);
+            return;
+        }
+        if (!doorUnlocked)
+        {
+            super.printMessage("Hmm that clay from outside could probably be hydrated then cut to unlock the basement door", mainActivity);
+            timer.addToHintTime(30);
+            return;
+        }
+        if (!key1)
+        {
+            super.printMessage("I may be able to find a key for the basement in one of the books upstairs", mainActivity);
+            timer.addToHintTime(30);
+            return;
+        }
+        if (!key2)
+        {
+            super.printMessage("Maybe a book upstairs can led me too a hidin key for that chest upstairs", mainActivity);
+            timer.addToHintTime(30);
+            return;
+        }
+        if (!inventory.inventory.contains("room3_battery"))
+        {
+            super.printMessage("I should find something that might store batteries and I can use a screwdriver on. Maybe downstairs", mainActivity);
+            timer.addToHintTime(10);
+            return;
+        }
+    }
 
+    public void callNextFloor()
+    {
+        Room5 room5 = new Room5(mainActivity, timer);
+        room5.startRoom5();
     }
 
 

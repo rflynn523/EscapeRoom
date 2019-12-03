@@ -5,17 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_end"
-        android:layout_width="210dp"
-        android:layout_height="211dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/room3_view1"
         android:layout_width="match_parent"
@@ -39,20 +28,6 @@
         app:layout_constraintVertical_bias="0.629" />
 
     <ImageButton
-        android:id="@+id/btn_left"
-        android:layout_width="63dp"
-        android:layout_height="40dp"
-        android:background="@drawable/room3_left"
-        android:cropToPadding="false"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
-
-    <ImageButton
         android:id="@+id/btn_hint"
         android:layout_width="63dp"
         android:layout_height="40dp"
@@ -65,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/hint_icon" />
 
     <ImageButton
         android:id="@+id/btn_menu"
@@ -80,7 +55,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/pause_icon" />
 
     <ImageButton
         android:id="@+id/btn_right"
@@ -165,5 +140,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.945" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/room3_portal" />
+
+    <Button
+        android:id="@+id/btn_end"
+        android:layout_width="210dp"
+        android:layout_height="211dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
