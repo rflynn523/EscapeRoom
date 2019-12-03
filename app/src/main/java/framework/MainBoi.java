@@ -17,7 +17,6 @@ public class MainBoi
     Timer timer;
     Button play_btn;
     MainActivity mainActivity;
-    Room2 room2;
 
     public MainBoi(MainActivity mainActivity)
     {
@@ -58,8 +57,6 @@ public class MainBoi
         Tutorial tutorial = new Tutorial(mainActivity, timer);
         tutorial.startRoom();
 
-//        Room1 room1 = new Room1(mainActivity, timer);
-//        room1.startRoom();
     }
 
 }
