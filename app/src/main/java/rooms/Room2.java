@@ -16,6 +16,7 @@ import framework.Inventory;
 import framework.PauseMenu;
 import framework.Timer;
 
+// Room2, written by Ryan Flynn
 public class Room2 extends Room
 {
     MainActivity mainActivity;
@@ -29,8 +30,6 @@ public class Room2 extends Room
     private int back = R.layout.room2_back;
 
     private boolean[] checkpoints;
-
-    private int solved = 0;
 
     public Room2(MainActivity ma, Timer timer)
     {
@@ -48,13 +47,10 @@ public class Room2 extends Room
     public void startRoom2()
     {
         room2_invo = super.setView(mainActivity, front, 0);
-        // Dont start the timer because just entered the second room.
 
         super.printMessage("I should probably find a note from Max", mainActivity);
 
         frontWall();
-
-
     }
 
     public void frontWall()
@@ -78,7 +74,6 @@ public class Room2 extends Room
         // Hides the morse code translator card if needed
         if(checkpoints[3] == true)
             morse_translator.setVisibility(View.GONE);
-
 
         btn_menu.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -106,6 +101,7 @@ public class Room2 extends Room
             }
         });
 
+        // Keypad icon
         keypad.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 keypad_screen();
@@ -143,7 +139,6 @@ public class Room2 extends Room
         ImageButton left_arrow = (ImageButton) mainActivity.findViewById(R.id.btn_left);
         ImageButton btn_menu = mainActivity.findViewById(R.id.btn_menu);
         ImageButton btn_hint = mainActivity.findViewById(R.id.btn_hint);
-
 
         final ImageButton bulb = (ImageButton) mainActivity.findViewById(R.id.room2_light_bulb);
         final ImageButton tv = (ImageButton) mainActivity.findViewById(R.id.room2_tv_off);
@@ -221,10 +216,8 @@ public class Room2 extends Room
                     ch_1.setVisibility(View.VISIBLE);
                     checkpoints[12] = true;
                 }
-
             }
         });
-
     }
 
     public void leftWall()
@@ -247,7 +240,7 @@ public class Room2 extends Room
         if (checkpoints[5])
             morse_code_cir.setVisibility(View.VISIBLE);
 
-        // Remote has been picked up so it should be inivisible
+        // Remote has been picked up so it should be invisible and the plant has been moved.
         if(checkpoints[4])
         {
             remote.setVisibility(View.GONE);
@@ -304,7 +297,6 @@ public class Room2 extends Room
             }
         });
 
-
         grass_init.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 grass_init.setVisibility(View.GONE);
@@ -328,9 +320,6 @@ public class Room2 extends Room
         final ImageButton white_board = (ImageButton) mainActivity.findViewById(R.id.room2_white_board);
         final ImageButton riddle_wb = (ImageButton) mainActivity.findViewById(R.id.room2_wb_riddle);
         final ImageButton morse_wb = (ImageButton) mainActivity.findViewById(R.id.room2_wb_morse);
-
-
-
 
         // Morse code translator placed on white board
         if (checkpoints[6])
@@ -374,20 +363,20 @@ public class Room2 extends Room
 
         white_board.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                if ("room2_morse_icon".equals(Room2.super.inventory.selectedItem))
-                {
-                    Room2.super.inventory.removeFromInventory("room2_morse_icon", room2_invo);
-                    checkpoints[6] = true;
-                    morse_wb.setVisibility(View.VISIBLE);
-                }
+            if ("room2_morse_icon".equals(Room2.super.inventory.selectedItem))
+            {
+                Room2.super.inventory.removeFromInventory("room2_morse_icon", room2_invo);
+                checkpoints[6] = true;
+                morse_wb.setVisibility(View.VISIBLE);
+            }
 
 
-                if ("room2_sticky_note".equals(Room2.super.inventory.selectedItem))
-                {
-                    Room2.super.inventory.removeFromInventory("room2_sticky_note", room2_invo);
-                    checkpoints[7] = true;
-                    riddle_wb.setVisibility(View.VISIBLE);
-                }
+            if ("room2_sticky_note".equals(Room2.super.inventory.selectedItem))
+            {
+                Room2.super.inventory.removeFromInventory("room2_sticky_note", room2_invo);
+                checkpoints[7] = true;
+                riddle_wb.setVisibility(View.VISIBLE);
+            }
             }
         });
 
@@ -402,54 +391,87 @@ public class Room2 extends Room
                 morse_translator_view_back();
             }
         });
-
     }
 
     public void show_room2_hint(int wall)
     {
-        timer.addToHintTime(10);
-        switch(wall)
+       switch(wall)
         {
             // Front wall
             case 1:
                 if (!checkpoints[1])
+                {
+                    timer.addToHintTime(2);
                     super.printMessage("HINT: Find the note from Max", mainActivity);
+                }
                 else if(!checkpoints[3])
+                {
+                    timer.addToHintTime(5);
                     super.printMessage("HINT: Is there something behind those picture frames?", mainActivity);
+                }
                 else if(!checkpoints[13])
+                {
+                    timer.addToHintTime(5);
                     super.printMessage("HINT: Those are a good set of picture frames", mainActivity);
+                }
                 else if(!checkpoints[14])
+                {
+                    timer.addToHintTime(10);
                     super.printMessage("HINT: This wall must be the front wall", mainActivity);
+                }
                 break;
 
             // Right wall
             case 2:
                 if(!checkpoints[4])
+                {
+                    timer.addToHintTime(5);
                     super.printMessage("HINT: This tv probably needs a remote", mainActivity);
+                }
                 else if(!checkpoints[12])
+                {
+                    timer.addToHintTime(5);
                     super.printMessage("HINT: Hmm only 2 channels", mainActivity);
+                }
                 else if(!checkpoints[2])
+                {
+                    timer.addToHintTime(10);
                     super.printMessage("HINT: What's under the tv stand?", mainActivity);
+                }
                 break;
 
             // Back wall
             case 3:
                 if(!checkpoints[10])
+                {
+                    timer.addToHintTime(5);
                     super.printMessage("HINT: I wonder when Max was here", mainActivity);
+                }
                 else if(!checkpoints[14])
+                {
+                    timer.addToHintTime(15);
                     super.printMessage("HINT: What's another way to right this riddle?", mainActivity);
+                }
                 break;
 
             // Left wall
             case 4:
                 if(!checkpoints[2])
+                {
+                    timer.addToHintTime(10);
                     super.printMessage("HINT: Looks like that lamp needs a light bulb", mainActivity);
+                }
                 else if(!checkpoints[5])
+                {
+                    timer.addToHintTime(5);
                     super.printMessage("HINT: This bulb must go somewhere", mainActivity);
+                }
                 break;
         }
     }
 
+    // An easier way for the user to see the riddle
+    // Front returns to the front wall and back returns to the back wall.
     public void riddle_view_front()
     {
         super.setView(mainActivity, R.layout.room2_riddle);
@@ -474,6 +496,8 @@ public class Room2 extends Room
         });
     }
 
+    // An easier way for the user to see the morse code translator
+    // Front returns to the front wall and back returns to the back wall.
     public void morse_translator_view_front()
     {
         super.setView(mainActivity, R.layout.room2_morse_translator_view);
@@ -498,6 +522,7 @@ public class Room2 extends Room
         });
     }
 
+    // Displays the calendar full screen XML
     public void calendar_view()
     {
         super.setView(mainActivity, R.layout.room2_calendar_view);
@@ -513,7 +538,7 @@ public class Room2 extends Room
         });
     }
 
-
+    // Keypad XML that allows the user to enter in the code.
     public void keypad_screen()
     {
         super.setView(mainActivity, R.layout.room2_keypad_screen);
@@ -640,6 +665,7 @@ public class Room2 extends Room
         });
     }
 
+    // Handles the sequence for when the user passes level.
     private void end_sequence()
     {
         room2_invo.clear();
@@ -652,9 +678,9 @@ public class Room2 extends Room
         sticky_note.setVisibility(View.INVISIBLE);
         morse_translator.setVisibility(View.INVISIBLE);
 
-        // Plane place holder for now.
         ImageButton portal_on = (ImageButton) mainActivity.findViewById(R.id.room2_portal_on);
         ImageView portal_off = (ImageView) mainActivity.findViewById(R.id.room2_portal_off);
+
         // Correct code was entered
         if (checkpoints[14])
         {
@@ -662,6 +688,7 @@ public class Room2 extends Room
             portal_off.setVisibility((View.INVISIBLE));
         }
 
+        super.printMessage("Yes I got it!", mainActivity);
         portal_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)

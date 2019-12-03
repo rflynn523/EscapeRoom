@@ -1622,6 +1622,7 @@ public class Room3 extends Room
                 btn_key.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v){
                         menu.openMenu(mainActivity, timer);
+
                     }
                 });
                 break;
